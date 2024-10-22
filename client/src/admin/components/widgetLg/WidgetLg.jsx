@@ -1,6 +1,6 @@
 import React,{useState, useEffect} from 'react';
 import './widgetLg.css';
-import { userRequest } from '../../requestMethod';
+import { userRequest } from '../../../requestMethod';
 import {format} from "timeago.js";
 
 const WidgetLg = () => {

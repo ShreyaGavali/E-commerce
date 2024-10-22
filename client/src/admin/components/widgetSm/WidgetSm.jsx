@@ -1,6 +1,6 @@
 import React,{useState, useEffect} from 'react';
 import './widgetSm.css';
-import { userRequest } from '../../requestMethod';
+import { userRequest } from '../../../requestMethod';
 
 const WidgetSm = () => {
     const [users, setUsers] = useState([]);

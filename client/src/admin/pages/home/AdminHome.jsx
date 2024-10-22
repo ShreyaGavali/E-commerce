@@ -2,12 +2,11 @@ import React, { useEffect, useState, useMemo } from 'react';
 import './home.css'
 import FeaturedInfo from '../../components/featuredInfo/FeaturedInfo';
 import Chart from '../../components/chart/Chart';
-import { userData } from '../../data';
 import WidgetSm from '../../components/widgetSm/widgetSm';
 import WidgetLg from '../../components/widgetLg/widgetLg';
-import { userRequest } from '../../requestMethod';
+import { userRequest } from '../../../requestMethod';
 
-const Home = () => {
+const AdminHome = () => {
   const [userStats, setUserStats] = useState([]);
   const MONTHS = useMemo(() => [
     "Jan",
@@ -51,4 +50,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default AdminHome

@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './userList.css';
 import { DataGrid } from '@mui/x-data-grid';
-import { userRows } from '../../data';
 import {Link} from 'react-router-dom';
-import { publicRequest } from '../../requestMethod';
+import { publicRequest } from '../../../requestMethod';
 
 
 const UserList = () => {

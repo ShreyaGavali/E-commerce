@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './user.css';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
-import { userRequest } from '../../requestMethod';
+import { userRequest } from '../../../requestMethod';
 
 const User = () => {
     const id = useParams();

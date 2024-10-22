@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { mobile } from '../responsive';
 import { login } from '../redux/apiCalls';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, Link, Navigate } from 'react-router-dom';
 import { loginSuccess, resetLogin } from '../redux/userRedux';
 
 const Container = styled.div`
@@ -64,7 +64,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
   const [formError, setFormError] = useState('');
-  const {isFetching, error, loginSuccess} = useSelector((state) => state.user);
+  const {isFetching, error, loginSuccess, currentUser} = useSelector((state) => state.user);
   const navigate = useNavigate();
 
   
@@ -77,11 +77,25 @@ const Login = () => {
     setFormError('');
     await login(dispatch,{userName: username, password});
   }
+  // useEffect(() => {
+  //   if (loginSuccess) {
+  //     if(currentUser.isAdmin){
+  //       navigate('/admin');
+  //     }
+  //     navigate('/');
+  //   }
+  // }, [loginSuccess, navigate]);
   useEffect(() => {
-    if (loginSuccess) {
-      navigate('/');
+    // Check if the login is successful and currentUser is not null
+    if (loginSuccess && currentUser) {
+      // Ensure that currentUser is defined before accessing its properties
+      if (currentUser.isAdmin) {
+        navigate('/admin/');
+      } else {
+        navigate('/');
+      }
     }
-  }, [loginSuccess, navigate]);
+  }, [loginSuccess, currentUser, navigate]);
   useEffect(() => {
     dispatch(resetLogin());
 }, [dispatch]);

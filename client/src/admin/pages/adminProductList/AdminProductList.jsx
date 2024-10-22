@@ -5,9 +5,9 @@ import {Link} from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteProducts, getProducts } from '../../redux/apiCalls';
 
-const ProductList = () => {
+const AdminProductList = () => {
     const dispatch = useDispatch();
-    const products = useSelector((state) => state.product.products);
+    const products = useSelector((state) => state.product.products || []);
 
     useEffect(() => {
       getProducts(dispatch);
@@ -66,4 +66,4 @@ const ProductList = () => {
   )
 }
 
-export default ProductList
+export default AdminProductList

@@ -1,21 +1,43 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './sidebar.css';
-import { Link } from 'react-router-dom';
-
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { logoutSuccess } from '../../../redux/userRedux';
+import Popup from '../../../components/Popup'
 const Sidebar = () => {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const [showModal, setShowModal] = useState(false);
+    const [popupMessage, setPopupMessage] = useState("");
+
+    const handleLogoutClick = () => {
+        setPopupMessage("Do you really want to log out?");
+        setShowModal(true); // Show the confirmation modal
+    };
+
+    const handleConfirmLogout = () => {
+        dispatch(logoutSuccess());
+        navigate("/"); // Navigate to the home page after logout
+        setShowModal(false); // Close the modal
+    };
+
+    const handleCancelLogout = () => {
+        setShowModal(false); // Close the modal without logging out
+    };
     return (
+        <>
         <div className="sidebar">
             <div className="sidebarWrapper">
                 <div className="sidebarMenu">
                     <h3 className="sidebarTitle">Dashboard</h3>
                     <ul className="sidebarList">
-                        <Link to="/" className="link">
+                        <Link to="/admin/" className="link">
                             <li className="sidebarListItem active">
                                 <i className="fa-sm fa-solid fa-house sidebarIcon"></i>
                                 Home
                             </li>
                         </Link>
-                        <Link to="/newProduct" className="link">
+                        <Link to="/admin/newProduct" className="link">
                         <li className="sidebarListItem">
                             <i className="fa-sm fa-solid fa-bars-staggered sidebarIcon"></i>
                             Create Product
@@ -30,13 +52,13 @@ const Sidebar = () => {
                 <div className="sidebarMenu">
                     <h3 className="sidebarTitle">Quick Menue</h3>
                     <ul className="sidebarList">
-                        <Link to='/users' className="link">
+                        <Link to='/admin/users' className="link">
                         <li className="sidebarListItem">
                             <i className="fa-regular fa-user sidebarIcon"></i>
                             Users
                         </li>
                         </Link>
-                        <Link to={"/products"} className="link">
+                        <Link to={"/admin/products"} className="link">
                         <li className="sidebarListItem">
                             <i className="fa-solid fa-box sidebarIcon"></i>
                             Products
@@ -80,14 +102,22 @@ const Sidebar = () => {
                             <i className="fa-sm fa-solid fa-bars-staggered sidebarIcon"></i>
                             Analytics
                         </li>
-                        <li className="sidebarListItem">
+                        <li className="sidebarListItem" onClick={handleLogoutClick}>
                             <i class="fa-solid fa-circle-info sidebarIcon"></i>
-                            Reports
+                            logout
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
+        {showModal && (
+                <Popup
+                    handleCancelDelete={handleCancelLogout} // Cancel logout
+                    handleConfirmDelete={handleConfirmLogout} // Confirm logout
+                    message={popupMessage}
+                />
+            )}
+        </>
     )
 }
 

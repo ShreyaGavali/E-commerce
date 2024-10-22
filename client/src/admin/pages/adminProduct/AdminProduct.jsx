@@ -2,12 +2,11 @@ import React, { useEffect, useMemo, useState } from 'react';
 import './product.css';
 import { Link, useLocation, useParams } from 'react-router-dom';
 import Chart from '../../components/chart/Chart';
-import { productData } from '../../data';
 import { useSelector, useDispatch } from 'react-redux';
-import { publicRequest, userRequest } from '../../requestMethod';
+import { publicRequest, userRequest } from '../../../requestMethod';
 import { updateProducts } from '../../redux/apiCalls';
 
-const Product = () => {
+const AdminProduct = () => {
     const location = useLocation()
     const productId = location.pathname.split("/")[2];
     const [updatedProduct, setUpdatedProduct] = useState({});
@@ -147,4 +146,4 @@ const Product = () => {
   )
 }
 
-export default Product
+export default AdminProduct

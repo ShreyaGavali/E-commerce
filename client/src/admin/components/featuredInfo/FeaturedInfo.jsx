@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './featuredInfo.css';
-import { userRequest } from '../../requestMethod';
+import { userRequest } from '../../../requestMethod';
 
 const FeaturedInfo = () => {
     const [income, setIncome] = useState([]);
