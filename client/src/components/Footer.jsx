@@ -69,8 +69,7 @@ const Footer = () => {
     <Container>
         <Left>
             <Logo>TIRO.</Logo>
-            <Desc>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores, sed. Aut voluptatem error, provident iure porro deleniti quisquam dignissimos corporis doloremque rem! Nisi
-            </Desc>
+            <Desc> Discover a curated collection of trendy and stylish clothing designed to elevate your wardrobe. With a user-friendly interface, secure payment options, and a seamless shopping experience, we make it easy for you to find the perfect outfit. Explore our latest arrivals and enjoy shopping from the comfort of your home!</Desc>
             <SocialContainer>
                 <SocialIcon style={{display: "flex", alignItems:"center", justifyContent: "center", marginRight: "20px"}}  color="385999">
                   <i className="fa-brands fa-facebook"></i>
