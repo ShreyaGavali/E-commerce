@@ -1,0 +1,9 @@
+body{
+    margin: 0px;
+    padding: opx;
+}
+
+.link{
+    text-decoration: none;
+    color: inherit;
+}
