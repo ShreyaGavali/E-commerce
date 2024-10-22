@@ -2,8 +2,8 @@ import React, { useEffect, useState, useMemo } from 'react';
 import './home.css'
 import FeaturedInfo from '../../components/featuredInfo/FeaturedInfo';
 import Chart from '../../components/chart/Chart';
-import WidgetSm from '../../components/widgetSm/widgetSm';
-import WidgetLg from '../../components/widgetLg/widgetLg';
+import WidgetSm from '../../components/widgetSm/WidgetSm';
+import WidgetLg from '../../components/widgetLg/WidgetLg';
 import { userRequest } from '../../../requestMethod';
 
 const AdminHome = () => {
