@@ -26,6 +26,7 @@ const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: #f5fbfd;
     position: relative;
     &:hover ${Info}{
         opacity: 1;
@@ -62,7 +63,6 @@ const Icon = styled.div`
 const Product = ({item}) => {
   return (
     <Container>
-        <Circle />
         <Image src={item.img} />
         <Info>
             <Icon>
