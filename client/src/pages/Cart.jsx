@@ -14,7 +14,7 @@ import logo from '../assets/Tirologo.webp';
 import Popup from '../components/Popup';
 import axios from 'axios';
 
-const KEY = import.meta.env.STRIPE_KEY;
+const KEY = import.meta.env.VITE_REACT_APP_STRIPE;
 // console.log(KEY);
 
 const Container = styled.div`
