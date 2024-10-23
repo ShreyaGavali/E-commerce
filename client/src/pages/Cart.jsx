@@ -199,7 +199,7 @@ const Cart = () => {
     useEffect(() => {
         const getProducts = async () => {
             try {
-                const res = await userRequest.get(`http://localhost:8080/api/cart/${id}`);
+                const res = await userRequest.get(`/cart/${id}`);
                 setCartProducts(res.data); // Assuming the response contains a "products" array
             } catch (err) {
                 console.log(err);
